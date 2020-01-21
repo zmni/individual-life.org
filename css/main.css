@@ -1,0 +1,153 @@
+:root {
+    --color-amazon: #f90;
+    --color-apple: #999;
+    --color-soundcloud: #f30;
+    --color-spotify: #1ed760;
+}
+
+*,
+::after,
+::before {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+h1 {
+    font-weight: normal;
+    text-align: center;
+    margin: 0 0 10px;
+    width: 100%;
+}
+
+.Link {
+    margin: 10px;
+}
+
+.LinkImg {
+    fill: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    width: 120px;
+    height: 120px;
+    transition-property: background-color, fill;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+}
+.Link:hover .LinkImg,
+.Link:focus .LinkImg,
+.Link:active .LinkImg {
+    background-color: #fff;
+}
+.LinkImg svg {
+    height: 80px;
+    width: 80px;
+}
+
+.LinkImg-apple {
+    background-color: var(--color-apple);
+}
+.Link:hover .LinkImg-apple,
+.Link:focus .LinkImg-apple,
+.Link:active .LinkImg-apple {
+    fill: var(--color-apple);
+}
+
+.LinkImg-spotify {
+    background-color: var(--color-spotify);
+}
+.Link:hover .LinkImg-spotify,
+.Link:focus .LinkImg-spotify,
+.Link:active .LinkImg-spotify {
+    fill: var(--color-spotify);
+}
+
+.LinkImg-soundcloud {
+    background-color: var(--color-soundcloud);
+}
+.Link:hover .LinkImg-soundcloud,
+.Link:focus .LinkImg-soundcloud,
+.Link:active .LinkImg-soundcloud {
+    fill: var(--color-soundcloud);
+}
+
+.LinkImg-amazon {
+    background-color: var(--color-amazon);
+}
+.Link:hover .LinkImg-amazon,
+.Link:focus .LinkImg-amazon,
+.Link:active .LinkImg-amazon {
+    fill: var(--color-amazon);
+}
+
+.LinkTitle {
+    text-align: center;
+    margin-top: 0.5em;
+}
+.Link-amazon:hover .LinkTitle,
+.Link-amazon:focus .LinkTitle,
+.Link-amazon:active .LinkTitle {
+    color: var(--color-amazon);
+}
+.Link-apple:hover .LinkTitle,
+.Link-apple:focus .LinkTitle,
+.Link-apple:active .LinkTitle {
+    color: var(--color-apple);
+}
+.Link-soundcloud:hover .LinkTitle,
+.Link-soundcloud:focus .LinkTitle,
+.Link-soundcloud:active .LinkTitle {
+    color: var(--color-soundcloud);
+}
+.Link-spotify:hover .LinkTitle,
+.Link-spotify:focus .LinkTitle,
+.Link-spotify:active .LinkTitle {
+    color: var(--color-spotify);
+}
+
+@media (min-width: 720px) {
+    body {
+        max-width: 700px;
+    }
+
+    .LinkImg {
+        border-radius: 8px;
+        width: 220px;
+        height: 220px;
+    }
+    .LinkImg svg {
+        height: 180px;
+        width: 180px;
+    }
+}
+
+@media (min-width: 960px) {
+    body {
+        max-width: none;
+    }
+}
