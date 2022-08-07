@@ -101,7 +101,10 @@
             <li><a href="mailto:&#098;&#097;&#110;&#100;&#064;&#105;&#110;&#100;&#105;&#118;&#105;&#100;&#117;&#097;&#108;&#045;&#108;&#105;&#102;&#101;&#046;&#111;&#114;&#103;">surel</a></li>
         </ul>
 
-        <footer>2005 - 2016</footer>
+        <footer>2005 - <span id="year"></span></footer>
+        
     </body>
+    
+    <script>document.getElementById("year").innerHTML = new Date().getFullYear();</script>
 
 </html>
