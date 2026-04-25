@@ -1,0 +1,115 @@
+---
+import { getImage, Image } from "astro:assets"
+import bgImg from "../assets/bg.png"
+import ogImg from "../assets/og.png"
+import "../styles/global.css"
+
+const getOgImg = await getImage({ src: ogImg })
+
+const site = {
+  name: "individual life",
+  description: "instrumantal music project dari jogjakarta, indonesia.",
+  canonicalUrl: import.meta.env.SITE,
+  image: getOgImg.src,
+  favicon: {
+    icon: "/favicon.svg",
+    apple: "/favicon.png",
+  },
+}
+---
+
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>{site.name}</title>
+    <meta name="description" content={site.description} />
+
+    <meta property="og:title" content={site.name} />
+    <meta property="og:description" content={site.description} />
+    <meta property="og:image" content={site.image} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={site.canonicalUrl} />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={site.name} />
+    <meta property="twitter:description" content={site.description} />
+    <meta property="twitter:image" content={site.image} />
+
+    <link rel="canonical" href={site.canonicalUrl} />
+
+    <link rel="icon" href={site.favicon.icon} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={site.favicon.apple} type="image/png" sizes="180x180" />
+  </head>
+  <body
+    class="space-y-6 bg-black p-4 font-mono font-light text-white antialiased [&_a]:hover:underline [&_ul]:ml-2 [&_div]:ml-2"
+  >
+    <h1 class="text-7xl tracking-tighter font-black text-[#00f]" title="individual life">il</h1>
+
+    <ul>
+      {
+        [
+          {
+            name: "zamani karmana",
+            href: "https://www.instagram.com/zamani.karmana/",
+          },
+          {
+            name: "richardus ardita",
+            href: "https://www.instagram.com/subidupap/",
+          },
+          {
+            name: "nadya hatta",
+            href: "https://www.instagram.com/nadya.hatta/",
+          },
+        ].map((member) => (
+          <li>
+            <a href={member.href} target="_blank" rel="noopener noreferrer">
+              {member.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <ul>
+      {
+        [
+          {
+            name: "itunes",
+            href: "https://music.apple.com/artist/individual-life/1494462212",
+          },
+          {
+            name: "spotify",
+            href: "https://open.spotify.com/artist/1chokUehyqVXMIPuNPLyR1",
+          },
+          {
+            name: "instagram",
+            href: "https://www.instagram.com/individual.life/",
+          },
+        ].map((link) => (
+          <li>
+            <a href={link.href} rel="me">
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div>
+      <a href="mailto:info@individual-life.org">
+        info@individual-life<i class="pointer-events-none invisible hidden">.individual-life</i>.org
+      </a>
+    </div>
+
+    <Image
+      src={bgImg}
+      alt="Background image"
+      quality="mid"
+      class="absolute inset-0 -z-10 opacity-50 size-full object-cover"
+      aria-hidden="true"
+      priority
+    />
+  </body>
+</html>
