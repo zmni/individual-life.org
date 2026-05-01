@@ -6,16 +6,46 @@ import "../styles/global.css"
 
 const getOgImg = await getImage({ src: ogImg })
 
-const site = {
+const metadata = {
   name: "individual life",
   description: "instrumantal music project dari jogjakarta, indonesia.",
   canonicalUrl: import.meta.env.SITE,
-  image: getOgImg.src,
+  ogImage: getOgImg.src,
   favicon: {
     icon: "/favicon.svg",
     apple: "/favicon.png",
   },
-}
+} as const
+
+const member = [
+  {
+    name: "zamani karmana",
+    href: "https://www.instagram.com/zamani.karmana/",
+  },
+  {
+    name: "richardus ardita",
+    href: "https://www.instagram.com/subidupap/",
+  },
+  {
+    name: "nadya hatta",
+    href: "https://www.instagram.com/nadya.hatta/",
+  },
+] as const
+
+const streaming = [
+  {
+    name: "itunes",
+    href: "https://music.apple.com/artist/individual-life/1494462212",
+  },
+  {
+    name: "spotify",
+    href: "https://open.spotify.com/artist/1chokUehyqVXMIPuNPLyR1",
+  },
+  {
+    name: "instagram",
+    href: "https://www.instagram.com/individual.life/",
+  },
+] as const
 ---
 
 <html lang="id">
@@ -23,24 +53,20 @@ const site = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
 
-    <title>{site.name}</title>
-    <meta name="description" content={site.description} />
+    <title>{metadata.name}</title>
+    <meta name="description" content={metadata.description} />
 
-    <meta property="og:title" content={site.name} />
-    <meta property="og:description" content={site.description} />
-    <meta property="og:image" content={site.image} />
+    <link rel="canonical" href={metadata.canonicalUrl} />
+
+    <meta property="og:title" content={metadata.name} />
+    <meta property="og:description" content={metadata.description} />
+    <meta property="og:image" content={metadata.ogImage} />
+    <meta property="og:url" content={metadata.canonicalUrl} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={site.canonicalUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
 
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content={site.name} />
-    <meta property="twitter:description" content={site.description} />
-    <meta property="twitter:image" content={site.image} />
-
-    <link rel="canonical" href={site.canonicalUrl} />
-
-    <link rel="icon" href={site.favicon.icon} type="image/svg+xml" />
-    <link rel="apple-touch-icon" href={site.favicon.apple} type="image/png" sizes="180x180" />
+    <link rel="icon" href={metadata.favicon.icon} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={metadata.favicon.apple} type="image/png" sizes="180x180" />
   </head>
   <body
     class="space-y-6 bg-black p-4 font-mono font-light text-white antialiased [&_a]:hover:underline [&_ul]:ml-2 [&_div]:ml-2"
@@ -49,23 +75,10 @@ const site = {
 
     <ul>
       {
-        [
-          {
-            name: "zamani karmana",
-            href: "https://www.instagram.com/zamani.karmana/",
-          },
-          {
-            name: "richardus ardita",
-            href: "https://www.instagram.com/subidupap/",
-          },
-          {
-            name: "nadya hatta",
-            href: "https://www.instagram.com/nadya.hatta/",
-          },
-        ].map((member) => (
+        member.map(({ name, href }) => (
           <li>
-            <a href={member.href} target="_blank" rel="noopener noreferrer">
-              {member.name}
+            <a href={href} target="_blank" rel="noopener noreferrer">
+              {name}
             </a>
           </li>
         ))
@@ -74,23 +87,10 @@ const site = {
 
     <ul>
       {
-        [
-          {
-            name: "itunes",
-            href: "https://music.apple.com/artist/individual-life/1494462212",
-          },
-          {
-            name: "spotify",
-            href: "https://open.spotify.com/artist/1chokUehyqVXMIPuNPLyR1",
-          },
-          {
-            name: "instagram",
-            href: "https://www.instagram.com/individual.life/",
-          },
-        ].map((link) => (
+        streaming.map(({ name, href }) => (
           <li>
-            <a href={link.href} rel="me">
-              {link.name}
+            <a href={href} target="_blank" rel="noopener noreferrer">
+              {name}
             </a>
           </li>
         ))
