@@ -8,7 +8,7 @@ const getOgImg = await getImage({ src: ogImg })
 
 const metadata = {
   name: "individual life",
-  description: "instrumantal music project dari jogjakarta, indonesia.",
+  description: "instrumental music project from jogjakarta, indonesia.",
   canonicalUrl: import.meta.env.SITE,
   ogImage: getOgImg.src,
   favicon: {
@@ -58,12 +58,13 @@ const streaming = [
 
     <link rel="canonical" href={metadata.canonicalUrl} />
 
+    <meta property="og:site_name" content={metadata.name} />
     <meta property="og:title" content={metadata.name} />
     <meta property="og:description" content={metadata.description} />
     <meta property="og:image" content={metadata.ogImage} />
     <meta property="og:url" content={metadata.canonicalUrl} />
-    <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image:alt" content={metadata.description} />
 
     <link rel="icon" href={metadata.favicon.icon} type="image/svg+xml" />
     <link rel="apple-touch-icon" href={metadata.favicon.apple} type="image/png" sizes="180x180" />
