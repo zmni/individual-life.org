@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import path from 'path';
 
 import cloudflare from '@astrojs/cloudflare';
 import tailwindcss from '@tailwindcss/vite';
@@ -15,10 +16,9 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
-
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src'),
+        '@': path.resolve('./src'),
       },
     },
   }
