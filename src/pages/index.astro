@@ -1,8 +1,8 @@
 ---
 import { getImage, Image } from "astro:assets"
-import bgImg from "@/assets/bg.png"
-import ogImg from "@/assets/og.png"
-import "@/styles/global.css"
+import bgImg from "../assets/bg.png"
+import ogImg from "../assets/og.png"
+import "../styles/global.css"
 
 const getOgImg = await getImage({ src: ogImg })
 
