@@ -1,10 +1,10 @@
 ---
-import { getImage, Image } from "astro:assets"
-import bgImg from "../assets/bg.png"
-import ogImg from "../assets/og.png"
-import "../styles/global.css"
+import { getImage, Image } from "astro:assets";
+import bgImg from "../assets/bg.png";
+import ogImg from "../assets/og.png";
+import "../styles/global.css";
 
-const getOgImg = await getImage({ src: ogImg })
+const getOgImg = await getImage({ src: ogImg });
 
 const metadata = {
   name: "individual life",
@@ -15,7 +15,7 @@ const metadata = {
     icon: "/favicon.svg",
     apple: "/favicon.png",
   },
-} as const
+} as const;
 
 const member = [
   {
@@ -30,7 +30,7 @@ const member = [
     name: "nadya hatta",
     href: "https://www.instagram.com/nadya.hatta/",
   },
-] as const
+] as const;
 
 const streaming = [
   {
@@ -45,7 +45,7 @@ const streaming = [
     name: "instagram",
     href: "https://www.instagram.com/individual.life/",
   },
-] as const
+] as const;
 ---
 
 <html lang="id">

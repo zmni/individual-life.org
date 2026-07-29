@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  --default-font-family: "Inter", var(--font-sans);
+  --default-transition-duration: 0.3s;
+}
