@@ -1,5 +1,5 @@
 {
-  "name": "individual-life",
+  "name": "individual-life.org",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -9,9 +9,14 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate-types": "wrangler types"
   },
   "dependencies": {
-    "astro": "^7.1.5"
+    "@astrojs/cloudflare": "^14.1.6",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.1.5",
+    "tailwindcss": "^4.3.3",
+    "wrangler": "^4.115.0"
   }
 }

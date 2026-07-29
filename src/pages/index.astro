@@ -1,17 +1,116 @@
 ---
+import { getImage, Image } from "astro:assets"
+import bgImg from "@/assets/bg.png"
+import ogImg from "@/assets/og.png"
+import "@/styles/global.css"
 
+const getOgImg = await getImage({ src: ogImg })
+
+const metadata = {
+  name: "individual life",
+  description: "instrumental music project from jogjakarta, indonesia.",
+  canonicalUrl: import.meta.env.SITE,
+  ogImage: getOgImg.src,
+  favicon: {
+    icon: "/favicon.svg",
+    apple: "/favicon.png",
+  },
+} as const
+
+const member = [
+  {
+    name: "zamani karmana",
+    href: "https://www.instagram.com/zamani.karmana/",
+  },
+  {
+    name: "richardus ardita",
+    href: "https://www.instagram.com/subidupap/",
+  },
+  {
+    name: "nadya hatta",
+    href: "https://www.instagram.com/nadya.hatta/",
+  },
+] as const
+
+const streaming = [
+  {
+    name: "itunes",
+    href: "https://music.apple.com/artist/individual-life/1494462212",
+  },
+  {
+    name: "spotify",
+    href: "https://open.spotify.com/artist/1chokUehyqVXMIPuNPLyR1",
+  },
+  {
+    name: "instagram",
+    href: "https://www.instagram.com/individual.life/",
+  },
+] as const
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>{metadata.name}</title>
+    <meta name="description" content={metadata.description} />
+
+    <link rel="canonical" href={metadata.canonicalUrl} />
+
+    <meta property="og:site_name" content={metadata.name} />
+    <meta property="og:title" content={metadata.name} />
+    <meta property="og:description" content={metadata.description} />
+    <meta property="og:image" content={metadata.ogImage} />
+    <meta property="og:url" content={metadata.canonicalUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image:alt" content={metadata.description} />
+
+    <link rel="icon" href={metadata.favicon.icon} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={metadata.favicon.apple} type="image/png" sizes="180x180" />
+  </head>
+  <body
+    class="space-y-6 bg-black p-4 font-mono font-light text-white antialiased [&_a]:hover:underline [&_ul]:ml-2 [&_div]:ml-2"
+  >
+    <h1 class="text-7xl tracking-tighter font-black text-[#00f]" title="individual life">il</h1>
+
+    <ul>
+      {
+        member.map(({ name, href }) => (
+          <li>
+            <a href={href} target="_blank" rel="noopener noreferrer">
+              {name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <ul>
+      {
+        streaming.map(({ name, href }) => (
+          <li>
+            <a href={href} target="_blank" rel="noopener noreferrer">
+              {name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div>
+      <a href="mailto:info@individual-life.org">
+        info@individual-life<i class="pointer-events-none invisible hidden">.individual-life</i>.org
+      </a>
+    </div>
+
+    <Image
+      src={bgImg}
+      alt="Background image"
+      quality="mid"
+      class="absolute inset-0 -z-10 opacity-50 size-full object-cover"
+      aria-hidden="true"
+      priority
+    />
+  </body>
 </html>
